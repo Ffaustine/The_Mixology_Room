@@ -1,0 +1,10 @@
+
+<ul>
+<% @cocktails.each do |cocktail| %>
+<li><img src=<%= cocktail.image_url%> alt= <%= cocktail.name %>></li>
+<li>  <%= cocktail.name %></li>
+<li>  <%= cocktail.instruction%></li>
+
+<li>  <%= cocktail.category%></li>
+<%end%>
+</ul>
