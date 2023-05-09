@@ -1,10 +1,14 @@
+<div class="container">
+  <div class="header">
+  <h1> Welcome to The Mixology Room </h1>
+  <h2> Find the perfect cocktail for you <h2>
+  </div>
 
-<ul>
-<% @cocktails.each do |cocktail| %>
-<li><img src=<%= cocktail.image_url%> alt= <%= cocktail.name %>></li>
-<li>  <%= cocktail.name %></li>
-<li>  <%= cocktail.instruction%></li>
-
-<li>  <%= cocktail.category%></li>
-<%end%>
-</ul>
+  <div class="cocktail-card">
+    <% @cocktails.each do |cocktail| %>
+      <img src=<%= cocktail.image_url%> alt= <%= cocktail.name %>>
+      <h3><%= cocktail.name %></h3>
+      <p><%= cocktail.alcoholic%></p>
+    <%end%>
+  </div>
+</div>

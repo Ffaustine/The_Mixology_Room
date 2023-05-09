@@ -3,6 +3,6 @@ class Ingredient < ApplicationRecord
   has_many :cocktails, through: :cocktail_ingredients
 
   validates :name, presence: true
-  validates :description, presence: true
-  validates :image_url, presence: true
+  # validates :description, presence: true
+  # validates :image_url, presence: true
 end
