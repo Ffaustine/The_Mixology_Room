@@ -1,0 +1,15 @@
+<%= image_tag @cocktail.image_url%>
+<h1><%= @cocktail.name %></h1>
+
+<h4>Ingredients:</h4>
+<ul>
+  <% @cocktail_ingredients.each do |cocktail_ingredient| %>
+    <% if cocktail_ingredient.amount.zero?()%>
+      <li><%= cocktail_ingredient.ingredient.name%></li>
+    <% else%>
+      <p><li><%= cocktail_ingredient.amount %> cl <%= cocktail_ingredient.ingredient.name %></li></p>
+    <%end%>
+  <% end %>
+
+  <p><%= @cocktail.instructions%>
+</ul>

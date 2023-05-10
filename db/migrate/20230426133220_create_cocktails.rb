@@ -6,7 +6,7 @@ class CreateCocktails < ActiveRecord::Migration[7.0]
       t.string :IBA
       t.string :glass
       t.string :image_url
-      t.text :instruction
+      t.text :instructions
 
       t.timestamps
     end

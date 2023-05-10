@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_04_142947) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_04_142702) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,7 +21,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_142947) do
     t.integer "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "instructions"
     t.index ["cocktail_id"], name: "index_cocktail_ingredients_on_cocktail_id"
     t.index ["ingredient_id"], name: "index_cocktail_ingredients_on_ingredient_id"
   end
@@ -32,24 +31,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_142947) do
     t.string "IBA"
     t.string "glass"
     t.string "image_url"
+    t.text "instructions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "alcoholic"
   end
 
-  create_table "favorites", force: :cascade do |t|
+  create_table "favorites_cocktails", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "cocktail_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cocktail_id"], name: "index_favorites_on_cocktail_id"
-    t.index ["user_id"], name: "index_favorites_on_user_id"
+    t.index ["cocktail_id"], name: "index_favorites_cocktails_on_cocktail_id"
+    t.index ["user_id"], name: "index_favorites_cocktails_on_user_id"
   end
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "type"
+    t.string "ingredient_type"
     t.string "ABV"
     t.string "image_url"
     t.datetime "created_at", null: false
@@ -71,6 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_142947) do
 
   add_foreign_key "cocktail_ingredients", "cocktails"
   add_foreign_key "cocktail_ingredients", "ingredients"
-  add_foreign_key "favorites", "cocktails"
-  add_foreign_key "favorites", "users"
+  add_foreign_key "favorites_cocktails", "cocktails"
+  add_foreign_key "favorites_cocktails", "users"
 end

@@ -4,7 +4,6 @@ class CocktailIngredient < ApplicationRecord
 
   # validates :amount, presence: true
   # validates :unit, presence: true
-  validates :instructions, presence: true, length: { minimum: 20 }
 end
 
 # changer oz en cl et inch en cm
