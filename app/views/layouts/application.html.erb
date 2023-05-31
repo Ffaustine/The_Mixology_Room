@@ -11,10 +11,19 @@
     <%= javascript_include_tag "carousel" %>
   </head>
 
-  <body><%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
+  <body>
+    <header class="site-header">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+    </header>
 
-    <%= yield %>
-    <%= render "shared/footer" %>
+    <main class="site-content">
+      <%= yield %>
+    </main>
+
+    <footer class="site-footer">
+      <%= render "shared/footer" %>
+    </footer>
   </body>
+
 </html>
