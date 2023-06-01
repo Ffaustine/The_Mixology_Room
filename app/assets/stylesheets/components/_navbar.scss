@@ -14,19 +14,19 @@
 }
 
 .nav-button {
-  margin-inline: 16px;
   height: 50px;
   width: 125px;
   padding-left: 14px;
   padding-right: 11px;
-  padding-bottom: 12px;
-  padding-top: 12px;
-  border-radius: 50px;
+  padding-top: 13px;
+  border-radius: 5px;
+  border-color: #E86A33;
   background: #E86A33;
   transition: 0.3s ease;
   a {
     color: white;
     text-decoration: none;
+    margin: 0px;
   }
 
   i{
@@ -35,5 +35,5 @@
 }
 
 .nav-button:hover {
-  background: #C85A2A;
+  background: #d25f2d;
 }
