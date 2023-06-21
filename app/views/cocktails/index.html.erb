@@ -21,10 +21,10 @@
               <div class="image">
                 <img class="image col-sm-4" src="<%= cocktail.image_url %>" alt="<%= cocktail.name %>">
               </div>
-              <div class="cocktail-card-infos col-sm-3 my-5">
+              <div class="cocktail-card-infos d-flex flex-column col-sm-3 my-5">
                 <h3><%= cocktail.name.upcase %></h3>
-                <p><%= cocktail.alcoholic %></p>
-                <%= link_to "See the recipe", cocktail_path(cocktail) %>
+                <h6><%= cocktail.alcoholic %></h6>
+                <%= link_to "See the recipe", cocktail_path(cocktail), class: "button-card text-center align-items-end" %>
               </div>
             </div>
           </div>
