@@ -1,15 +1,27 @@
-<%= image_tag @cocktail.image_url%>
-<h1><%= @cocktail.name %></h1>
-
-<h4>Ingredients:</h4>
-<ul>
-  <% @cocktail_ingredients.each do |cocktail_ingredient| %>
-    <% if cocktail_ingredient.amount.zero?()%>
-      <li><%= cocktail_ingredient.ingredient.name%></li>
-    <% else%>
-      <p><li><%= cocktail_ingredient.amount %> cl <%= cocktail_ingredient.ingredient.name %></li></p>
-    <%end%>
-  <% end %>
-
-  <p><%= @cocktail.instructions%>
-</ul>
+<div class="container-fluid">
+  <div class="body">
+    <div class="cocktail-card mx-auto mt-5">
+      <div class ="row">
+        <div class="col-sm-7">
+          <img class="image" src="<%= @cocktail.image_url %>" alt="<%= @cocktail.name %>">
+        </div>
+        <div class= "col-sm-5">
+          <div class="cocktail-card-infos d-flex flex-column align-item-center pt-4">
+            <h3><%= @cocktail.name.upcase %></h3>
+            <h5>Ingredients:</h5>
+            <ul>
+              <% @cocktail_ingredients.each do |cocktail_ingredient| %>
+                <% if cocktail_ingredient.amount.zero?()%>
+                  <li><%= cocktail_ingredient.ingredient.name%></li>
+                <% else%>
+                  <p><li><%= cocktail_ingredient.amount %> cl <%= cocktail_ingredient.ingredient.name %></li></p>
+                <%end%>
+              <% end %>
+            </ul>
+            <p><%= @cocktail.instructions%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

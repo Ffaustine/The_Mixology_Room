@@ -27,7 +27,7 @@ class CocktailsController < ApplicationController
     @cocktails = []
     if results.present?
       results.each do |result|
-        if cocktail = Cocktail.find_by(name: result["strDrink"])
+        if cocktail == Cocktail.find_by(name: result["strDrink"])
           @cocktails << cocktail
         else
           cocktail = Cocktail.create!(

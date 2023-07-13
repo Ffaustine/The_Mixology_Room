@@ -17,14 +17,18 @@
       <div class="carousel-inner">
         <% @cocktails.each_with_index do |cocktail, index| %>
           <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-            <div class="cocktail-card d-flex flex-row col-sm-8 mx-auto">
-              <div class="image">
-                <img class="image col-sm-4" src="<%= cocktail.image_url %>" alt="<%= cocktail.name %>">
-              </div>
-              <div class="cocktail-card-infos d-flex flex-column col-sm-3 my-5">
-                <h3><%= cocktail.name.upcase %></h3>
-                <h6><%= cocktail.alcoholic %></h6>
-                <%= link_to "See the recipe", cocktail_path(cocktail), class: "button-card text-center align-items-end" %>
+            <div class="cocktail-card mx-auto">
+              <div class ="row">
+                <div class="col-sm-8">
+                  <img class="image" src="<%= cocktail.image_url %>" alt="<%= cocktail.name %>">
+                </div>
+                <div class= "col-sm-4">
+                  <div class="cocktail-card-infos d-flex flex-column my-5">
+                    <h3><%= cocktail.name.upcase %></h3>
+                    <h6><%= cocktail.alcoholic %></h6>
+                    <%= link_to "See the recipe", cocktail_path(cocktail), class: "button-card text-center" %>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

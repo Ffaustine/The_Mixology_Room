@@ -6,8 +6,33 @@
   background: #E86A33;
   transition: 0.3s ease;
   color: white;
+  padding-left: 12px;
+  padding-right: 20px;
 }
 
 .button:hover {
+  background: #d25f2d;
+}
+
+
+.button-login {
+  a {
+  text-decoration:none;
+  color: black;
+  }
+}
+.button-card {
+  max-height: 50px;
+  max-width: 140px;
+  border-radius: 5px;
+  border-color: #E86A33;
+  background: #E86A33;
+  transition: 0.3s ease;
+  color: white;
+  padding: 10px;
+  text-decoration:none;
+}
+
+.button-card :hover {
   background: #d25f2d;
 }
