@@ -1,0 +1,15 @@
+<div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <%= image_tag cocktail.image_url, class: "card-img-top", alt: cocktail.name %>
+          <div class="card-body">
+            <h5 class="card-title"><%= cocktail.name %></h5>
+            <p class="card-text">Category: <%= cocktail.category %></p>
+            <p class="card-text">Alcoholic: <%= cocktail.alcoholic %></p>
+            <%= link_to "View Recipe", cocktail_path(cocktail), class: "btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
