@@ -1,14 +1,14 @@
 <div class="container-fluid">
   <div class="body">
     <div class="row justify-content-center">
-      <div class="col-sm-8 form-url">
+      <div class="col-sm-8 col-lg-6 form-url">
         <%= form_with url: cocktails_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
                 placeholder: "Search a cocktail"
             %>
-          <%= submit_tag "Search", name: "", class: "button" %>
+          <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
@@ -18,15 +18,19 @@
         <% @cocktails.each_with_index do |cocktail, index| %>
           <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
             <div class="cocktail-card mx-auto">
-              <div class ="row">
-                <div class="col-sm-8">
+              <div class ="row px-0">
+                <div class="col-sm-8 col-lg-8">
                   <img class="image" src="<%= cocktail.image_url %>" alt="<%= cocktail.name %>">
                 </div>
-                <div class= "col-sm-4">
+                <div class= "col-sm-4 col-lg-4">
                   <div class="cocktail-card-infos d-flex flex-column my-5">
-                    <h3><%= cocktail.name.upcase %></h3>
-                    <h6><%= cocktail.alcoholic %></h6>
-                    <%= link_to "See the recipe", cocktail_path(cocktail), class: "button-card text-center" %>
+                    <div class="title">
+                      <h3><%= cocktail.name.upcase %></h3>
+                    </div>
+                    <div class="alcool">
+                      <h6><%= cocktail.alcoholic %></h6>
+                    </div>
+                    <%= link_to "See the recipe", cocktail_path(cocktail), class: "btn btn-primary" %>
                   </div>
                 </div>
               </div>
