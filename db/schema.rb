@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_04_142702) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_07_145156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,6 +35,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_142702) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "alcoholic"
+  end
+
+  create_table "favorite_cocktails", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "cocktail_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cocktail_id"], name: "index_favorite_cocktails_on_cocktail_id"
+    t.index ["user_id"], name: "index_favorite_cocktails_on_user_id"
   end
 
   create_table "favorites_cocktails", force: :cascade do |t|
@@ -71,6 +80,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_04_142702) do
 
   add_foreign_key "cocktail_ingredients", "cocktails"
   add_foreign_key "cocktail_ingredients", "ingredients"
+  add_foreign_key "favorite_cocktails", "cocktails"
+  add_foreign_key "favorite_cocktails", "users"
   add_foreign_key "favorites_cocktails", "cocktails"
   add_foreign_key "favorites_cocktails", "users"
 end

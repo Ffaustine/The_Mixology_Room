@@ -2,7 +2,7 @@ class Cocktail < ApplicationRecord
   has_many :cocktail_ingredients
   has_many :ingredients, through: :cocktail_ingredients
 
-  has_many :favorite_cocktails
+  has_many :favorite_cocktails, dependent: :destroy
   has_many :favorited_by, through: :favorite_cocktails, source: :user
 
   validates :name, presence: true

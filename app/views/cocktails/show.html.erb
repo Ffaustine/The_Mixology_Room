@@ -1,13 +1,30 @@
 <div class="container-fluid">
-  <div class="body">
+
     <div class="cocktail-card mx-auto mt-5">
       <div class ="row">
-        <div class="col-sm-7">
+        <div class="col-sm-7 col-lg-7">
           <img class="image" src="<%= @cocktail.image_url %>" alt="<%= @cocktail.name %>">
         </div>
-        <div class= "col-sm-5">
-          <div class="cocktail-card-infos d-flex flex-column align-item-center pt-4">
-            <h3><%= @cocktail.name.upcase %></h3>
+        <div class= "col-sm-5 col-lg-5">
+          <div class="cocktail-card-infos pt-4">
+            <div class="row">
+              <div class="col-sm-10 col-lg-10">
+                <h3><%= @cocktail.name.upcase %></h3>
+              </div>
+              <div class="col-sm-2 col-lg-2">
+              <% if user_signed_in? %>
+                  <% unless current_user.favorite_cocktails.include?(@cocktail) %>
+                    <%= button_to add_to_favorites_cocktail_path(@cocktail), method: :post do %>
+                      <i class="far fa-heart"></i>
+                    <% end %>
+                  <% else %>
+                    <%= button_to remove_from_favorites_cocktail_path(@cocktail), method: :delete do %>
+                      <i class="fas fa-heart"></i>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </div>
+            </div>
             <h5>Ingredients:</h5>
             <ul>
               <% @cocktail_ingredients.each do |cocktail_ingredient| %>
@@ -23,5 +40,5 @@
         </div>
       </div>
     </div>
-  </div>
+
 </div>

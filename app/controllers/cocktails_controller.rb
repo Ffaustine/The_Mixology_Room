@@ -14,6 +14,28 @@ class CocktailsController < ApplicationController
   def show
     @cocktail = Cocktail.find(params[:id])
     @cocktail_ingredients = @cocktail.cocktail_ingredients
+    @favorite_cocktails = current_user.favorited_cocktails
+  end
+
+
+  def add_to_favorites
+    @cocktail= Cocktail.find(params[:id])
+    favorite_cocktail = FavoriteCocktail.new(user: current_user, cocktail: @cocktail)
+    if favorite_cocktail.save
+      redirect_to cocktail_path(@cocktail), notice: "The recipe has been added to favorites"
+    else
+      redirect_to cocktail_path(@cocktail), alert: "Failed to add the recipe to favorites"
+    end
+  end
+
+  def remove_from_favorites
+    @cocktail=Cocktail.find(params[:id])
+    favorite_cocktail = current_user.favorite_cocktails.find_by(cocktail: @cocktail)
+    if favorite_cocktail.destroy
+      redirect_to cocktail_path(@cocktail), notice: "The recipe has been removed from favorites"
+    else
+      redirect_to cocktail_path(@cocktail), alert: "Failed to remove the recipe from favorites"
+    end
   end
 
   private

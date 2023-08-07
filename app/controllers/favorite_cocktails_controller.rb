@@ -1,3 +1,0 @@
-class FavoriteCocktailsController < ApplicationController
-
-end
